@@ -17,6 +17,12 @@
   <a href="https://app.netlify.com/sites/brittanychiang/deploys" target="_blank">
     <img src="https://api.netlify.com/api/v1/badges/1963b488-7b78-48c9-9e2d-6fb5e47ab3af/deploy-status" alt="Netlify Status" />
   </a>
+  <a href="https://lgtm.com/projects/g/danydodson/developer/context:javascript">
+    <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/danydodson/developer.svg?logo=lgtm&logoWidth=18"/>
+  </a>
+  <a href="https://lgtm.com/projects/g/danydodson/developer/alerts/">
+    <img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/danydodson/developer.svg?logo=lgtm&logoWidth=18"/>
+  </a>
 </p>
 
 ![demo](https://raw.githubusercontent.com/bchiang7/v4/main/src/images/demo.png)
