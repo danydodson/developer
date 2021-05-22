@@ -1,11 +1,11 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { Layout } from '@components';
-import { IconBookmark } from '@components/icons';
+import React from 'react'
+import { graphql, Link } from 'gatsby'
+import kebabCase from 'lodash/kebabCase'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import styled from 'styled-components'
+import { Layout } from '@components'
+import { IconBookmark } from '@components/icons'
 
 const StyledMainContainer = styled.main`
   & > header {
@@ -27,7 +27,7 @@ const StyledMainContainer = styled.main`
     width: 100%;
     margin-top: 20px;
   }
-`;
+`
 const StyledGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
   display: grid;
@@ -39,7 +39,7 @@ const StyledGrid = styled.ul`
   @media (max-width: 1080px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
-`;
+`
 const StyledPost = styled.li`
   transition: var(--transition);
   cursor: default;
@@ -140,51 +140,49 @@ const StyledPost = styled.li`
       }
     }
   }
-`;
+`
 
 const PensievePage = ({ location, data }) => {
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout location={location}>
-      <Helmet title="Pensieve" />
+      <Helmet title='Pensieve' />
 
       <StyledMainContainer>
         <header>
-          <h1 className="big-heading">Pensieve</h1>
-          <p className="subtitle">
-            <a href="https://www.wizardingworld.com/writing-by-jk-rowling/pensieve">
-              a collection of memories
-            </a>
+          <h1 className='big-heading'>Pensieve</h1>
+          <p className='subtitle'>
+            <a href='https://www.wizardingworld.com/writing-by-jk-rowling/pensieve'>a collection of memories</a>
           </p>
         </header>
 
         <StyledGrid>
           {posts.length > 0 &&
             posts.map(({ node }, i) => {
-              const { frontmatter } = node;
-              const { title, description, slug, date, tags } = frontmatter;
-              const formattedDate = new Date(date).toLocaleDateString();
+              const { frontmatter } = node
+              const { title, description, slug, date, tags } = frontmatter
+              const formattedDate = new Date(date).toLocaleDateString()
 
               return (
                 <StyledPost key={i}>
-                  <div className="post__inner">
+                  <div className='post__inner'>
                     <header>
-                      <div className="post__icon">
+                      <div className='post__icon'>
                         <IconBookmark />
                       </div>
-                      <h5 className="post__title">
+                      <h5 className='post__title'>
                         <Link to={slug}>{title}</Link>
                       </h5>
-                      <p className="post__desc">{description}</p>
+                      <p className='post__desc'>{description}</p>
                     </header>
 
                     <footer>
-                      <span className="post__date">{formattedDate}</span>
-                      <ul className="post__tags">
+                      <span className='post__date'>{formattedDate}</span>
+                      <ul className='post__tags'>
                         {tags.map((tag, i) => (
                           <li key={i}>
-                            <Link to={`/pensieve/tags/${kebabCase(tag)}/`} className="inline-link">
+                            <Link to={`/pensieve/tags/${kebabCase(tag)}/`} className='inline-link'>
                               #{tag}
                             </Link>
                           </li>
@@ -193,20 +191,20 @@ const PensievePage = ({ location, data }) => {
                     </footer>
                   </div>
                 </StyledPost>
-              );
+              )
             })}
         </StyledGrid>
       </StyledMainContainer>
     </Layout>
-  );
-};
+  )
+}
 
 PensievePage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
-};
+}
 
-export default PensievePage;
+export default PensievePage
 
 export const pageQuery = graphql`
   {
@@ -229,4 +227,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

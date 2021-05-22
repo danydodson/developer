@@ -27,19 +27,15 @@ Dark mode toggle without the flash of default theme. Important bits:
     ...
     <script>
       // If there's a theme stored in localStorage, use it on the <html>
-      const localStorageTheme = localStorage.getItem('theme');
+      const localStorageTheme = localStorage.getItem('theme')
       if (localStorageTheme) {
-        document.documentElement.setAttribute('data-theme', localStorageTheme);
+        document.documentElement.setAttribute('data-theme', localStorageTheme)
       }
     </script>
   </head>
   <body>
     <div class="theme-toggle">
-      <button
-        class="theme-toggle-btn js-theme-toggle"
-        aria-label="Activate dark mode"
-        title="Activate dark mode"
-      >
+      <button class="theme-toggle-btn js-theme-toggle" aria-label="Activate dark mode" title="Activate dark mode">
         <!--
         <svg class="light-mode">
           <use xlink:href="#sun"></use>

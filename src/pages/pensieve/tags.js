@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import kebabCase from 'lodash/kebabCase';
-import PropTypes from 'prop-types';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import { Layout } from '@components';
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import kebabCase from 'lodash/kebabCase'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import styled from 'styled-components'
+import { Layout } from '@components'
 
 const StyledTagsContainer = styled.main`
   max-width: 1000px;
@@ -29,7 +29,7 @@ const StyledTagsContainer = styled.main`
       }
     }
   }
-`;
+`
 
 const TagsPage = ({
   data: {
@@ -38,27 +38,27 @@ const TagsPage = ({
   location,
 }) => (
   <Layout location={location}>
-    <Helmet title="Tags" />
+    <Helmet title='Tags' />
 
     <StyledTagsContainer>
-      <span className="breadcrumb">
-        <span className="arrow">&larr;</span>
-        <Link to="/pensieve">All memories</Link>
+      <span className='breadcrumb'>
+        <span className='arrow'>&larr;</span>
+        <Link to='/pensieve'>All memories</Link>
       </span>
 
       <h1>Tags</h1>
-      <ul className="fancy-list">
+      <ul className='fancy-list'>
         {group.map(tag => (
           <li key={tag.fieldValue}>
-            <Link to={`/pensieve/tags/${kebabCase(tag.fieldValue)}/`} className="inline-link">
-              {tag.fieldValue} <span className="count">({tag.totalCount})</span>
+            <Link to={`/pensieve/tags/${kebabCase(tag.fieldValue)}/`} className='inline-link'>
+              {tag.fieldValue} <span className='count'>({tag.totalCount})</span>
             </Link>
           </li>
         ))}
       </ul>
     </StyledTagsContainer>
   </Layout>
-);
+)
 
 TagsPage.propTypes = {
   data: PropTypes.shape({
@@ -67,7 +67,7 @@ TagsPage.propTypes = {
         PropTypes.shape({
           fieldValue: PropTypes.string.isRequired,
           totalCount: PropTypes.number.isRequired,
-        }).isRequired,
+        }).isRequired
       ),
     }),
     site: PropTypes.shape({
@@ -77,9 +77,9 @@ TagsPage.propTypes = {
     }),
   }),
   location: PropTypes.object,
-};
+}
 
-export default TagsPage;
+export default TagsPage
 
 export const pageQuery = graphql`
   query {
@@ -90,4 +90,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

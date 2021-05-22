@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Icon } from '@components/icons';
-import { socialMedia } from '@config';
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Icon } from '@components/icons'
+import { socialMedia } from '@config'
 
 const StyledFooter = styled.footer`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -11,7 +11,7 @@ const StyledFooter = styled.footer`
   min-height: 70px;
   padding: 15px;
   text-align: center;
-`;
+`
 
 const StyledSocialLinks = styled.div`
   display: none;
@@ -38,7 +38,7 @@ const StyledSocialLinks = styled.div`
       }
     }
   }
-`;
+`
 
 const StyledCredit = styled.div`
   color: var(--light-slate);
@@ -65,29 +65,29 @@ const StyledCredit = styled.div`
       height: 14px;
     }
   }
-`;
+`
 
 const Footer = () => {
   const [githubInfo, setGitHubInfo] = useState({
     stars: null,
     forks: null,
-  });
+  })
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'production') {
-      return;
+      return
     }
-    fetch('https://api.github.com/repos/bchiang7/v4')
+    fetch('https://api.github.com/repos/danydodson/developer')
       .then(response => response.json())
       .then(json => {
-        const { stargazers_count, forks_count } = json;
+        const { stargazers_count, forks_count } = json
         setGitHubInfo({
           stars: stargazers_count,
           forks: forks_count,
-        });
+        })
       })
-      .catch(e => console.error(e));
-  }, []);
+      .catch(e => console.error(e))
+  }, [])
 
   return (
     <StyledFooter>
@@ -104,18 +104,18 @@ const Footer = () => {
         </ul>
       </StyledSocialLinks>
 
-      <StyledCredit tabindex="-1">
-        <a href="https://github.com/bchiang7/v4">
-          <div>Designed &amp; Built by Brittany Chiang</div>
+      <StyledCredit tabindex='-1'>
+        <a href='https://github.com/danydodson/developer'>
+          <div>Designed &amp; Built by Dany Dodson</div>
 
           {githubInfo.stars && githubInfo.forks && (
-            <div className="github-stats">
+            <div className='github-stats'>
               <span>
-                <Icon name="Star" />
+                <Icon name='Star' />
                 <span>{githubInfo.stars.toLocaleString()}</span>
               </span>
               <span>
-                <Icon name="Fork" />
+                <Icon name='Fork' />
                 <span>{githubInfo.forks.toLocaleString()}</span>
               </span>
             </div>
@@ -123,11 +123,11 @@ const Footer = () => {
         </a>
       </StyledCredit>
     </StyledFooter>
-  );
-};
+  )
+}
 
 Footer.propTypes = {
   githubInfo: PropTypes.object,
-};
+}
 
-export default Footer;
+export default Footer

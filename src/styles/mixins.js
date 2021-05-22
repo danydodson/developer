@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from 'styled-components'
 
 const button = css`
   color: var(--green);
@@ -22,7 +22,7 @@ const button = css`
   &:after {
     display: none !important;
   }
-`;
+`
 
 const mixins = {
   flexCenter: css`
@@ -166,6 +166,6 @@ const mixins = {
     padding: 0;
     margin: 0;
   `,
-};
+}
 
-export default mixins;
+export default mixins
