@@ -1,11 +1,10 @@
 module.exports = {
-  parser: 'babel-eslint',
   env: {
     browser: true,
     es2021: true,
     node: true,
   },
-  extends: ['eslint:recommended'],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier'],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -13,7 +12,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['react'],
+  plugins: ['react', 'jsx-a11y'],
   settings: {
     react: {
       version: 'detect',
@@ -22,5 +21,5 @@ module.exports = {
   rules: {
     'no-unused-vars': 0,
   },
-  ignorePatterns: ['**/.eslintrc.js', '**/node_modules'],
+  ignorePatterns: ['**/node_modules'],
 }
