@@ -173,13 +173,21 @@ const Nav = ({ isHome }) => {
   )
 
   const ResumeLink = (
-    <a className='resume-button' href='/resume.pdf' target='_blank' rel='noopener noreferrer'>
+    <a
+      className='resume-button'
+      href='/resume.pdf'
+      target='_blank'
+      rel='noopener noreferrer'
+    >
       Resume
     </a>
   )
 
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <StyledHeader
+      scrollDirection={scrollDirection}
+      scrolledToTop={scrolledToTop}
+    >
       <StyledNav>
         {prefersReducedMotion ? (
           <>
@@ -215,8 +223,17 @@ const Nav = ({ isHome }) => {
                   {isMounted &&
                     navLinks &&
                     navLinks.map(({ url, name }, i) => (
-                      <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
-                        <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
+                      <CSSTransition
+                        key={i}
+                        classNames={fadeDownClass}
+                        timeout={timeout}
+                      >
+                        <li
+                          key={i}
+                          style={{
+                            transitionDelay: `${isHome ? i * 100 : 0}ms`,
+                          }}
+                        >
                           <Link to={url}>{name}</Link>
                         </li>
                       </CSSTransition>
@@ -227,7 +244,15 @@ const Nav = ({ isHome }) => {
               <TransitionGroup component={null}>
                 {isMounted && (
                   <CSSTransition classNames={fadeDownClass} timeout={timeout}>
-                    <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>{ResumeLink}</div>
+                    <div
+                      style={{
+                        transitionDelay: `${
+                          isHome ? navLinks.length * 100 : 0
+                        }ms`,
+                      }}
+                    >
+                      {ResumeLink}
+                    </div>
                   </CSSTransition>
                 )}
               </TransitionGroup>

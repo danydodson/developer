@@ -170,14 +170,27 @@ const ArchivePage = ({ location, data }) => {
             <tbody>
               {projects.length > 0 &&
                 projects.map(({ node }, i) => {
-                  const { date, github, external, ios, android, title, tech, company } = node.frontmatter
+                  const {
+                    date,
+                    github,
+                    external,
+                    ios,
+                    android,
+                    title,
+                    tech,
+                    company,
+                  } = node.frontmatter
                   return (
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
-                      <td className='overline year'>{`${new Date(date).getFullYear()}`}</td>
+                      <td className='overline year'>{`${new Date(
+                        date
+                      ).getFullYear()}`}</td>
 
                       <td className='title'>{title}</td>
 
-                      <td className='company hide-on-mobile'>{company ? <span>{company}</span> : <span>—</span>}</td>
+                      <td className='company hide-on-mobile'>
+                        {company ? <span>{company}</span> : <span>—</span>}
+                      </td>
 
                       <td className='tech hide-on-mobile'>
                         {tech.length > 0 &&
@@ -185,7 +198,9 @@ const ArchivePage = ({ location, data }) => {
                             <span key={i}>
                               {item}
                               {''}
-                              {i !== tech.length - 1 && <span className='separator'>&middot;</span>}
+                              {i !== tech.length - 1 && (
+                                <span className='separator'>&middot;</span>
+                              )}
                             </span>
                           ))}
                       </td>
@@ -208,7 +223,10 @@ const ArchivePage = ({ location, data }) => {
                             </a>
                           )}
                           {android && (
-                            <a href={android} aria-label='Google Play Store Link'>
+                            <a
+                              href={android}
+                              aria-label='Google Play Store Link'
+                            >
                               <Icon name='PlayStore' />
                             </a>
                           )}
@@ -233,7 +251,10 @@ export default ArchivePage
 
 export const pageQuery = graphql`
   {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/projects/" } }, sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           frontmatter {

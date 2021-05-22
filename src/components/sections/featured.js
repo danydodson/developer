@@ -296,14 +296,21 @@ const StyledProject = styled.li`
 const Featured = () => {
   const data = useStaticQuery(graphql`
     {
-      featured: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/featured/" } }, sort: { fields: [frontmatter___date], order: DESC }) {
+      featured: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/featured/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
         edges {
           node {
             frontmatter {
               title
               cover {
                 childImageSharp {
-                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                  gatsbyImageData(
+                    width: 700
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP, AVIF]
+                  )
                 }
               }
               tech
@@ -328,7 +335,9 @@ const Featured = () => {
     }
 
     sr.reveal(revealTitle.current, srConfig())
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
+    revealProjects.current.forEach((ref, i) =>
+      sr.reveal(ref, srConfig(i * 100))
+    )
   }, [])
 
   return (
@@ -345,7 +354,10 @@ const Featured = () => {
             const image = getImage(cover)
 
             return (
-              <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
+              <StyledProject
+                key={i}
+                ref={el => (revealProjects.current[i] = el)}
+              >
                 <div className='project-content'>
                   <div>
                     <p className='project-overline'>Featured Project</p>
@@ -354,7 +366,10 @@ const Featured = () => {
                       <a href={external}>{title}</a>
                     </h3>
 
-                    <div className='project-description' dangerouslySetInnerHTML={{ __html: html }} />
+                    <div
+                      className='project-description'
+                      dangerouslySetInnerHTML={{ __html: html }}
+                    />
 
                     {tech.length && (
                       <ul className='project-tech-list'>
@@ -371,7 +386,11 @@ const Featured = () => {
                         </a>
                       )}
                       {external && (
-                        <a href={external} aria-label='External Link' className='external'>
+                        <a
+                          href={external}
+                          aria-label='External Link'
+                          className='external'
+                        >
                           <Icon name='External' />
                         </a>
                       )}

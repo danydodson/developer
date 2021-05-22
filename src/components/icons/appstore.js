@@ -1,7 +1,14 @@
 import React from 'react'
 
 const IconAppStore = () => (
-  <svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 512 512' xmlSpace='preserve'>
+  <svg
+    version='1.1'
+    xmlns='http://www.w3.org/2000/svg'
+    x='0px'
+    y='0px'
+    viewBox='0 0 512 512'
+    xmlSpace='preserve'
+  >
     <title>Apple App Store</title>
     <g>
       <g>

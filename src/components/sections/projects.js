@@ -168,7 +168,10 @@ const Projects = () => {
   const data = useStaticQuery(graphql`
     query {
       projects: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/projects/" }, frontmatter: { showInProjects: { ne: false } } }
+        filter: {
+          fileAbsolutePath: { regex: "/projects/" }
+          frontmatter: { showInProjects: { ne: false } }
+        }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
         edges {
@@ -199,7 +202,9 @@ const Projects = () => {
 
     sr.reveal(revealTitle.current, srConfig())
     sr.reveal(revealArchiveLink.current, srConfig())
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)))
+    revealProjects.current.forEach((ref, i) =>
+      sr.reveal(ref, srConfig(i * 100))
+    )
   }, [])
 
   const GRID_LIMIT = 6
@@ -225,7 +230,11 @@ const Projects = () => {
                 </a>
               )}
               {external && (
-                <a href={external} aria-label='External Link' className='external'>
+                <a
+                  href={external}
+                  aria-label='External Link'
+                  className='external'
+                >
                   <Icon name='External' />
                 </a>
               )}
@@ -236,7 +245,10 @@ const Projects = () => {
             <a href={external}>{title}</a>
           </h3>
 
-          <div className='project-description' dangerouslySetInnerHTML={{ __html: html }} />
+          <div
+            className='project-description'
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         </header>
 
         <footer>
@@ -256,23 +268,39 @@ const Projects = () => {
     <StyledProjectsSection>
       <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
 
-      <Link className='inline-link archive-link' to='/archive' ref={revealArchiveLink}>
+      <Link
+        className='inline-link archive-link'
+        to='/archive'
+        ref={revealArchiveLink}
+      >
         view the archive
       </Link>
 
       <ul className='projects-grid'>
         {prefersReducedMotion ? (
-          <>{projectsToShow && projectsToShow.map(({ node }, i) => <StyledProject key={i}>{projectInner(node)}</StyledProject>)}</>
+          <>
+            {projectsToShow &&
+              projectsToShow.map(({ node }, i) => (
+                <StyledProject key={i}>{projectInner(node)}</StyledProject>
+              ))}
+          </>
         ) : (
           <TransitionGroup component={null}>
             {projectsToShow &&
               projectsToShow.map(({ node }, i) => (
-                <CSSTransition key={i} classNames='fadeup' timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300} exit={false}>
+                <CSSTransition
+                  key={i}
+                  classNames='fadeup'
+                  timeout={i >= GRID_LIMIT ? (i - GRID_LIMIT) * 300 : 300}
+                  exit={false}
+                >
                   <StyledProject
                     key={i}
                     ref={el => (revealProjects.current[i] = el)}
                     style={{
-                      transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
+                      transitionDelay: `${
+                        i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0
+                      }ms`,
                     }}
                   >
                     {projectInner(node)}

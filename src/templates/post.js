@@ -78,7 +78,11 @@ const PostTemplate = ({ data, location }) => {
             {tags &&
               tags.length > 0 &&
               tags.map((tag, i) => (
-                <Link key={i} to={`/pensieve/tags/${kebabCase(tag)}/`} className='tag'>
+                <Link
+                  key={i}
+                  to={`/pensieve/tags/${kebabCase(tag)}/`}
+                  className='tag'
+                >
                   #{tag}
                 </Link>
               ))}
