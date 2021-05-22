@@ -4,6 +4,39 @@ import { srConfig, email } from '@config'
 import sr from '@utils/sr'
 import { usePrefersReducedMotion } from '@hooks'
 
+const Contact = () => {
+  const revealContainer = useRef(null)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    sr.reveal(revealContainer.current, srConfig())
+  }, [])
+
+  return (
+    <StyledContactSection id='contact' ref={revealContainer}>
+      <h2 className='numbered-heading overline'>What’s Next?</h2>
+
+      <h2 className='title'>Get In Touch</h2>
+
+      <p>
+        Although I&apos;m not currently looking for any new opportunities, my
+        inbox is always open. Whether you have a question or just want to say
+        hi, I&apos;ll try my best to get back to you!
+      </p>
+
+      <a className='email-link' href={`mailto:${email}`}>
+        Say Hello
+      </a>
+    </StyledContactSection>
+  )
+}
+
+export default Contact
+
 const StyledContactSection = styled.section`
   max-width: 600px;
   margin: 0 auto 100px;
@@ -40,36 +73,3 @@ const StyledContactSection = styled.section`
     margin-top: 50px;
   }
 `
-
-const Contact = () => {
-  const revealContainer = useRef(null)
-  const prefersReducedMotion = usePrefersReducedMotion()
-
-  useEffect(() => {
-    if (prefersReducedMotion) {
-      return
-    }
-
-    sr.reveal(revealContainer.current, srConfig())
-  }, [])
-
-  return (
-    <StyledContactSection id='contact' ref={revealContainer}>
-      <h2 className='numbered-heading overline'>What’s Next?</h2>
-
-      <h2 className='title'>Get In Touch</h2>
-
-      <p>
-        Although I&apos;m not currently looking for any new opportunities, my
-        inbox is always open. Whether you have a question or just want to say
-        hi, I&apos;ll try my best to get back to you!
-      </p>
-
-      <a className='email-link' href={`mailto:${email}`}>
-        Say Hello
-      </a>
-    </StyledContactSection>
-  )
-}
-
-export default Contact

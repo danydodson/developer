@@ -6,50 +6,6 @@ import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import { Layout } from '@components'
 
-const StyledPostContainer = styled.main`
-  max-width: 1000px;
-`
-const StyledPostHeader = styled.header`
-  margin-bottom: 50px;
-  .tag {
-    margin-right: 10px;
-  }
-`
-const StyledPostContent = styled.div`
-  margin-bottom: 100px;
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 2em 0 1em;
-  }
-
-  p {
-    margin: 1em 0;
-    line-height: 1.5;
-    color: var(--light-slate);
-  }
-
-  a {
-    ${({ theme }) => theme.mixins.inlineLink};
-  }
-
-  code {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
-    border-radius: var(--border-radius);
-    font-size: var(--fz-sm);
-    padding: 0.2em 0.4em;
-  }
-
-  pre code {
-    background-color: transparent;
-    padding: 0;
-  }
-`
-
 const PostTemplate = ({ data, location }) => {
   const { frontmatter, html } = data.markdownRemark
   const { title, date, tags } = frontmatter
@@ -114,5 +70,49 @@ export const pageQuery = graphql`
         tags
       }
     }
+  }
+`
+
+const StyledPostContainer = styled.main`
+  max-width: 1000px;
+`
+const StyledPostHeader = styled.header`
+  margin-bottom: 50px;
+  .tag {
+    margin-right: 10px;
+  }
+`
+const StyledPostContent = styled.div`
+  margin-bottom: 100px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 2em 0 1em;
+  }
+
+  p {
+    margin: 1em 0;
+    line-height: 1.5;
+    color: var(--light-slate);
+  }
+
+  a {
+    ${({ theme }) => theme.mixins.inlineLink};
+  }
+
+  code {
+    background-color: var(--lightest-navy);
+    color: var(--lightest-slate);
+    border-radius: var(--border-radius);
+    font-size: var(--fz-sm);
+    padding: 0.2em 0.4em;
+  }
+
+  pre code {
+    background-color: transparent;
+    padding: 0;
   }
 `

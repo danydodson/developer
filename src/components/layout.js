@@ -10,12 +10,6 @@ if (typeof window !== 'undefined') {
   require('smooth-scroll')('a[href*="#"]')
 }
 
-const StyledContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`
-
 const Layout = ({ children, location }) => {
   const isHome = location.pathname === '/'
   const [isLoading, setIsLoading] = useState(isHome)
@@ -90,3 +84,9 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+const StyledContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
