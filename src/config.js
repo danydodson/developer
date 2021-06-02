@@ -22,6 +22,10 @@ module.exports = {
       name: 'Codepen',
       url: 'https://codepen.io/danydodson',
     },
+    {
+      name: 'Rss',
+      url: 'https://github.com/danydodson',
+    },
   ],
 
   navLinks: [
