@@ -14,6 +14,9 @@
   <a href="https://lgtm.com/projects/g/danydodson/developer/alerts/">
     <img alt="Total alerts" src="https://img.shields.io/lgtm/alerts/g/danydodson/developer.svg?logo=lgtm&logoWidth=18"/>
   </a>
+  <a href="https://wakatime.com/badge/github/danydodson/developer">
+    <img alt="Total alerts" src="https://wakatime.com/badge/github/danydodson/developer.svg"/>
+  </a>
 </p>
 
 ![demo](https://raw.githubusercontent.com/danydodson/developer/main/src/images/demo.png)
