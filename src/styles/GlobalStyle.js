@@ -151,6 +151,12 @@ const GlobalStyle = createGlobalStyle`
   .big-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 80px);
+
+    &-title {
+      margin: 0;
+      font-size: clamp(40px, 8vw, 80px);
+      color: rgb(60, 172, 255, .70)
+    }
   }
 
   .medium-heading {

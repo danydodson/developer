@@ -9,13 +9,7 @@ module.exports = {
     image: '/og.png',
     twitterUsername: '@danydodson',
   },
-  // flags: {
-  //   FAST_DEV: true,
-  //   PRESERVE_WEBPACK_CACHE: true,
-  //   FAST_PRESERVE_FILE_DOWNLOAD_CACHEDEV: true,
-  //   PARALLEL_SOURCING: true,
-  //   FUNCTIONS: true,
-  // },
+
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -163,4 +157,12 @@ module.exports = {
       },
     },
   ],
+  flags: {
+    DEV_SSR: false,
+    // FAST_DEV: true,
+    // PRESERVE_WEBPACK_CACHE: true,
+    // FAST_PRESERVE_FILE_DOWNLOAD_CACHEDEV: true,
+    // PARALLEL_SOURCING: true,
+    // FUNCTIONS: true,
+  },
 }

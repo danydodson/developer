@@ -10,3 +10,12 @@ package-lock.json
 
 # IDE
 .vscode/
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

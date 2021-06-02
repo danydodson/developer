@@ -7,12 +7,12 @@
   "scripts": {
     "clean": "gatsby clean",
     "build": "gatsby build",
-    "develop": "npm run clean && gatsby develop -H 0.0.0.0 -p 8000",
-    "start": "npm run develop",
+    "develop": "gatsby clean && gatsby develop -H 0.0.0.0 -p 8000",
+    "start": "yarn run develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "serve": "gatsby serve",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "serve": "gatsby serve"
   },
   "lint-staged": {
     "*.{js,css,json,md}": [
@@ -26,6 +26,7 @@
     "animejs": "^3.2.1",
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^3.5.1",
+    "gatsby-link": "^3.5.0",
     "gatsby-plugin-google-analytics": "^3.5.0",
     "gatsby-plugin-image": "^1.5.0",
     "gatsby-plugin-manifest": "^3.5.0",
