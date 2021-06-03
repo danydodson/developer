@@ -7,20 +7,18 @@ import styled from 'styled-components'
 import { Layout } from '@components'
 import { IconBookmark } from '@components/icons'
 
-const PensievePage = ({ location, data }) => {
+const PostsPage = ({ location, data }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
     <Layout location={location}>
-      <Helmet title='Pensieve' />
+      <Helmet title='Posts' />
 
       <StyledMainContainer>
         <header>
-          <h1 className='big-heading'>Pensieve</h1>
+          <h1 className='big-heading'>Posts</h1>
           <p className='subtitle'>
-            <a href='https://www.wizardingworld.com/writing-by-jk-rowling/pensieve'>
-              a collection of memories
-            </a>
+            <a href='/posts'>a collection of posts</a>
           </p>
         </header>
 
@@ -50,7 +48,7 @@ const PensievePage = ({ location, data }) => {
                         {tags.map((tag, i) => (
                           <li key={i}>
                             <Link
-                              to={`/pensieve/tags/${kebabCase(tag)}/`}
+                              to={`/posts/tags/${kebabCase(tag)}/`}
                               className='inline-link'
                             >
                               #{tag}
@@ -69,12 +67,12 @@ const PensievePage = ({ location, data }) => {
   )
 }
 
-PensievePage.propTypes = {
+PostsPage.propTypes = {
   location: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 }
 
-export default PensievePage
+export default PostsPage
 
 export const pageQuery = graphql`
   {

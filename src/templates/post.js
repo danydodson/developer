@@ -17,7 +17,7 @@ const PostTemplate = ({ data, location }) => {
       <StyledPostContainer>
         <span className='breadcrumb'>
           <span className='arrow'>&larr;</span>
-          <Link to='/pensieve'>All memories</Link>
+          <Link to='/posts'>All posts</Link>
         </span>
 
         <StyledPostHeader>
@@ -36,7 +36,7 @@ const PostTemplate = ({ data, location }) => {
               tags.map((tag, i) => (
                 <Link
                   key={i}
-                  to={`/pensieve/tags/${kebabCase(tag)}/`}
+                  to={`/posts/tags/${kebabCase(tag)}/`}
                   className='tag'
                 >
                   #{tag}

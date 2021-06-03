@@ -101,6 +101,7 @@ const StyledAboutSection = styled.section`
     }
   }
 `
+
 const StyledText = styled.div`
   ul.skills-list {
     display: grid;
@@ -128,6 +129,7 @@ const StyledText = styled.div`
     }
   }
 `
+
 const StyledPic = styled.div`
   position: relative;
   max-width: 300px;
@@ -164,8 +166,8 @@ const StyledPic = styled.div`
     .img {
       position: relative;
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
+      /* mix-blend-mode: multiply; */
+      filter: grayscale(50%) contrast(1);
       transition: var(--transition);
     }
 
